@@ -25,22 +25,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <header>
-          <div className="navbar bg-amber-50 shadow-sm">
-            <div className="flex-1">
-              <Link className="btn btn-primary text-xl" href="/">Tatil Mi?</Link>
-            </div>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                placeholder="Search"
-                className="input bg-amber-100 w-24 md:w-auto"
-              />
-            </div>
-          </div>
+          <nav className="navbar bg-amber-50 shadow-sm">
+            <Link className="btn btn-primary text-xl" href="/">
+              <i className="fa-regular fa-snowflake"></i>
+              Tatil Mi?
+            </Link>
+          </nav>
         </header>
         {children}
         <footer className="flex items-center justify-center footer footer-center mt-auto p-5 text-md sm:text-lg md:text-2xl border-t">
