@@ -44,7 +44,9 @@ export default function TurkeyMap() {
           .attr("fill", "#1e90ff88");
       })
       .on("click", function (event, d) {
-        router.push("/" + d.properties.name);
+        if (d.properties?.name) {
+          router.push("/" + d.properties.name);
+        }
       })
       .on("mouseout", function (event, d) {
         d3.select(this as SVGPathElement)
