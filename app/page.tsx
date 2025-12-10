@@ -2,9 +2,10 @@
 
 import * as d3 from "d3";
 import { useEffect, useRef } from "react";
-import trData from "@/tr-cities.json"; 
+import trData from "@/tr-cities.json";
 import { FeatureCollection, Geometry } from "geojson";
 import { useRouter } from "next/navigation";
+import { slugify } from "turkify";
 
 const width = 800;
 const height = 450;
@@ -14,17 +15,14 @@ export default function TurkeyMap() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!trData || !svgRef.current) return;
+    if (!svgRef.current) return;
 
-    const geoData = trData as unknown as FeatureCollection<Geometry>;
-
+    const geoData = trData as FeatureCollection<Geometry>;
     const svg = d3.select(svgRef.current);
-    
     svg.selectAll("*").remove();
 
     const projection = d3.geoMercator().fitSize([width, height], geoData);
-
-    const pathGenerator = d3.geoPath().projection(projection);
+    const pathGen = d3.geoPath().projection(projection);
 
     const g = svg.append("g");
 
@@ -32,28 +30,27 @@ export default function TurkeyMap() {
       .data(geoData.features)
       .enter()
       .append("path")
-      .attr("d", (d: any) => pathGenerator(d))
+      .attr("d", (d) => pathGen(d) || "")
       .attr("fill", "#1e90ff44")
       .attr("stroke", "#1e90ff")
       .attr("stroke-width", 1)
       .attr("cursor", "pointer")
-      .on("mouseover", function (event, d) {
-        d3.select(this as SVGPathElement)
+      .on("mouseover", (event) => {
+        d3.select(event.currentTarget)
           .transition()
-          .duration(200)
+          .duration(150)
           .attr("fill", "#1e90ff88");
       })
-      .on("click", function (event, d) {
-        router.push("/" + d.properties.name);
-      })
-      .on("mouseout", function (event, d) {
-        d3.select(this as SVGPathElement)
+      .on("mouseout", (event) => {
+        d3.select(event.currentTarget)
           .transition()
-          .duration(200)
+          .duration(150)
           .attr("fill", "#1e90ff44");
+      })
+      .on("click", (_, d: any) => {
+        router.push("/" + slugify(d.properties.name));
       });
-
-  }, []);
+  }, [router]);
 
   return (
     <div className="flex min-h-screen items-center justify-center font-sans bg-gray-50">
