@@ -53,8 +53,7 @@ export default function TurkeyMap() {
   }, [router]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center font-sans bg-gray-50">
-      <main className="w-full max-w-4xl p-4">
+      <main className="w-full max-w-4xl m-auto">
         <div className="w-full h-auto">
           <svg
             ref={svgRef}
@@ -63,6 +62,5 @@ export default function TurkeyMap() {
           />
         </div>
       </main>
-    </div>
   );
 }
