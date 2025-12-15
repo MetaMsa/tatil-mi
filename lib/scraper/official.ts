@@ -2,12 +2,18 @@ import { KEYWORDS } from "./keywords";
 import * as cheerio from "cheerio";
 import { slugify } from "turkify";
 
+interface OfficialResult {
+  city: string,
+  text: string,
+  url: string
+}
+
 export async function scrapeOfficial(city: string) {
   const res = await fetch(`http://www.${slugify(city)}.gov.tr/duyurular`);
   const html = await res.text();
   const $ = cheerio.load(html);
 
-  const results: any[] = [];
+  const results: OfficialResult[] = [];
 
   $("a.announce-text").each((_, el) => {
     const text = $(el).text().toLocaleLowerCase();
@@ -15,7 +21,7 @@ export async function scrapeOfficial(city: string) {
         results.push({
             city: city,
             text: text,
-            url: $(el).attr("href")
+            url: $(el).attr("href")!
         });
     }
   });

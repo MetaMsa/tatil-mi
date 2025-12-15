@@ -1,8 +1,15 @@
 import { scrapeOfficial } from "@/lib/scraper/official";
 import { prisma } from "@/lib/prisma";
 import cities from "@/cities.json";
+import { NextRequest } from "next/server";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const auth = req.headers.get("authorization");
+
+  if (auth !== `Bearer ${process.env.CRON_SECRET}`) {
+    return Response.json({ error: "unauthorized" }, { status: 401 });
+  }
+
   const processed: { city: string; count: number }[] = [];
 
   for (const [cityName] of Object.entries(cities)) {

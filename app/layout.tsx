@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,16 +36,69 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <header>
-          <nav className="navbar bg-amber-50 shadow-sm">
+          <nav className="navbar bg-amber-50 shadow-sm justify-center sm:justify-start">
             <Link className="btn btn-primary text-xl" href="/">
               <i className="fa-regular fa-snowflake"></i>
               Tatil Mi?
             </Link>
           </nav>
         </header>
-        {children}
-        <footer className="flex items-center justify-center footer footer-center mt-auto p-5 text-md sm:text-lg md:text-2xl border-t">
-          footer
+        <main className="w-full m-auto">{children}</main>
+        <footer className="footer flex justify-between shadow-2xl bg-amber-50 text-dark p-3">
+          <aside className="flex my-auto">
+            <Image
+              className="mx-auto"
+              src="/favicon.svg"
+              width={25}
+              height={25}
+              alt=""
+            />
+            <div>
+              <span className="slider me-15">
+                <span className="slider__word">İstanbul</span>
+                <span className="slider__word">Ankara</span>
+                <span className="slider__word">İzmir</span>
+                <span className="slider__word">Türkiye</span>
+              </span>
+              <span className="flex justify-start gap-1">
+                Tatil <span className="text-indigo-500">Mi?</span>
+              </span>
+            </div>
+          </aside>
+          <nav className="my-auto grid grid-cols-2 justify-center text-xs">
+            <Link className="link link-hover mx-auto" href="https://benserhat.com/">
+              Hakkımda
+            </Link>
+            <Link className="link link-hover mx-autor" href="/disclaimer">
+              Sorumluluk Reddi
+            </Link>
+            <Link className="link link-hover mx-auto" href="https://benserhat.com/gdpr">
+              Gizlilik Politikası
+            </Link>
+            <Link className="link link-hover mx-auto" href="/methodology">
+              Metodoloji
+            </Link>
+          </nav>
+          <nav className="my-auto">
+            <div className="text-xs sm:text-lg">
+              <Link
+                href={
+                  "https://www.linkedin.com/in/mehmet-serhat-aslan-58272b28a/"
+                }
+              >
+                <i className="fa-brands fa-linkedin"></i>
+              </Link>
+              <Link href={"https://github.com/MetaMsa"}>
+                <i className="fa-brands fa-github"></i>
+              </Link>
+              <Link href={"https://www.youtube.com/@metamsa"}>
+                <i className="fa-brands fa-youtube"></i>
+              </Link>
+              <Link href={"mailto:mserhataslan@hotmail.com"}>
+                <i className="fa fa-envelope"></i>
+              </Link>
+            </div>
+          </nav>
         </footer>
       </body>
     </html>
