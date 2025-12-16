@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://tatilmi.benserhat.live
+
+# Sitemaps
+Sitemap: https://tatilmi.benserhat.live/sitemap.xml

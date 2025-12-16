@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { use, useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 
 enum NormalizeCities {
   adiyaman = "adıyaman",
@@ -55,7 +54,6 @@ export default function City({
   params: Promise<{ city: string }>;
 }) {
   const { city } = use(params);
-  const router = useRouter();
 
   const [holidays, setHolidays] = useState<Holiday[]>([]);
   const [error, setError] = useState<string>("");
