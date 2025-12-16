@@ -37,7 +37,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <header>
-          <nav className="navbar bg-amber-50 shadow-sm justify-between">
+          <nav className="navbar bg-amber-50 shadow-sm justify-between gap-3">
             <Link className="btn btn-primary text-xl" href="/">
               <i className="fa-regular fa-snowflake"></i>
               Tatil Mi?

@@ -31,7 +31,7 @@ export default function Search() {
         onChange={searchHandler}
         onKeyDown={keyHandler}
         type="search"
-        className="input border-black w-full bg-info my-auto text-dark"
+        className="input border-black w-full bg-info my-auto text-dark rounded-xl"
         placeholder="Şehir ara..."
         onFocus={() => setSearchTextOpen(true)}
         onBlur={() => setSearchTextOpen(false)}
@@ -48,7 +48,7 @@ export default function Search() {
             <li
               key={city}
               onMouseDown={() => router.push("/" + slugify(city))}
-              className="cursor-pointer"
+              className="cursor-pointer link m-3 text-center"
             >
               {city}
             </li>
