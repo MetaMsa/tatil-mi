@@ -115,7 +115,7 @@ export default function TurkeyMap() {
       <svg
         ref={svgRef}
         viewBox={`0 0 ${width} ${height}`}
-        className="w-full h-auto"
+        className="w-full h-full"
       />
       <div className="flex gap-3 justify-center">
         <span className="relative flex size-3">
