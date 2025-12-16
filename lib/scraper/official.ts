@@ -16,7 +16,7 @@ export async function scrapeOfficial(city: string) {
   const results: OfficialResult[] = [];
 
   $("a.announce-text").each((_, el) => {
-    const text = $(el).text().toLocaleLowerCase();
+    const text = $(el).text().toLocaleLowerCase("tr-TR");
     if (KEYWORDS.some((k) => text.includes(k))) {
         results.push({
             city: city,

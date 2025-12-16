@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { use, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 enum NormalizeCities {
   adiyaman = "adıyaman",
@@ -53,8 +55,10 @@ export default function City({
   params: Promise<{ city: string }>;
 }) {
   const { city } = use(params);
+  const router = useRouter();
 
   const [holidays, setHolidays] = useState<Holiday[]>([]);
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     const getData = async () => {
@@ -62,6 +66,11 @@ export default function City({
         cache: "no-store",
         headers: { Accept: "application/json" },
       });
+
+      if (res.status === 404) {
+        setError("404");
+        return;
+      }
 
       const list: Holiday[] = await res.json();
 
@@ -77,48 +86,55 @@ export default function City({
     getData();
   }, [city]);
 
+  if (error === "404") return notFound();
+
   const capitalized = NormalizeCities[city as keyof typeof NormalizeCities]
     ? NormalizeCities[city as keyof typeof NormalizeCities]
         .charAt(0)
-        .toUpperCase() +
+        .toLocaleUpperCase("tr-TR") +
       NormalizeCities[city as keyof typeof NormalizeCities].slice(1)
-    : city.charAt(0).toUpperCase() + city.slice(1);
+    : city.charAt(0).toLocaleUpperCase("tr-TR") + city.slice(1);
 
   const d = new Date();
 
   return (
     <div className="m-10 text-center bg-white p-3 rounded-xl shadow">
-      <p className="text-center mb-5 bg-info w-50 mx-auto p-3 rounded-xl">{capitalized} Tatil Duyuruları</p>
+      <p className="text-center mb-5 bg-info w-50 mx-auto p-3 rounded-xl">
+        {capitalized} Tatil Duyuruları
+      </p>
       <div className="flex flex-wrap justify-center gap-6 overflow-y-auto max-h-96">
-        {holidays.length != 0 ? holidays.map((h) => (
-          <Link
-            key={h.id}
-            href={h.url}
-            className={`card ${
-              fmtDT(h.createdAt).slice(0, 10) ===
-              fmtDT(d.toString()).slice(0, 10)
-                ? "bg-primary"
-                : "bg-warning"
-            } text-primary-content w-96`}
-          >
-            <div className="card-body">
-              <h2 className="card-title">Kar Tatili</h2>
-              <p>
-                {h.text} <br />
-                <span className="text-xs">
-                  {fmtDT(h.createdAt).slice(0, 10)} <br />
-                  {fmtDT(h.createdAt).slice(0, 10) ===
-                  fmtDT(d.toString()).slice(0, 10)
-                    ? "Yeni duyuru"
-                    : "Eski duyuru"}
-                </span>
-              </p>
-            </div>
-          </Link>
-        )) :
-        <div className="bg-red-500 text-white p-3 rounded-xl">
-          Bu il için duyuru yok.
-        </div>}
+        {holidays.length != 0 ? (
+          holidays.map((h) => (
+            <Link
+              key={h.id}
+              href={h.url}
+              className={`card ${
+                fmtDT(h.createdAt).slice(0, 10) ===
+                fmtDT(d.toString()).slice(0, 10)
+                  ? "bg-primary"
+                  : "bg-warning"
+              } text-primary-content w-96`}
+            >
+              <div className="card-body">
+                <h2 className="card-title">Kar Tatili</h2>
+                <p>
+                  {h.text} <br />
+                  <span className="text-xs">
+                    {fmtDT(h.createdAt).slice(0, 10)} <br />
+                    {fmtDT(h.createdAt).slice(0, 10) ===
+                    fmtDT(d.toString()).slice(0, 10)
+                      ? "Yeni duyuru"
+                      : "Eski duyuru"}
+                  </span>
+                </p>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <div className="bg-red-500 text-white p-3 rounded-xl">
+            Bu il için duyuru yok.
+          </div>
+        )}
       </div>
     </div>
   );

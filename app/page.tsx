@@ -31,7 +31,7 @@ export default function TurkeyMap() {
 
       const mapped = list.map((x: any) => ({
         id: x.id,
-        city: x.city.toLocaleLowerCase(),
+        city: x.city.toLocaleLowerCase("tr-TR"),
       }));
 
       setCities(mapped);
@@ -53,7 +53,7 @@ export default function TurkeyMap() {
     const g = svg.append("g");
 
     const isHolidayCity = (d: any) =>
-      cities.some((c) => c.city === d.properties?.name?.toLocaleLowerCase());
+      cities.some((c) => c.city === d.properties?.name?.toLocaleLowerCase("tr-TR"));
 
     g.selectAll("path")
       .data(geoData.features)
