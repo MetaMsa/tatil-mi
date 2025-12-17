@@ -50,7 +50,7 @@ export async function GET(req: NextRequest) {
   }
 
   const start = new Date();
-  start.setHours(0, 0, 0, 0);
+  start.setHours(start.getHours() + 3);
 
   const end = new Date();
   end.setDate(start.getDate() + 1);
