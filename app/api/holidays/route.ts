@@ -49,19 +49,8 @@ export async function GET(req: NextRequest) {
     return Response.json({ error: "not found" }, { status: 404 });
   }
 
-  const now = new Date();
-
-  const start = new Date(
-    Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCDate(),
-      -3,
-      0,
-      0,
-      0
-    )
-  );
+  const start = new Date();
+  start.setHours(+3, 0, 0, 0);
 
   const end = new Date(start);
   end.setUTCDate(end.getUTCDate() + 1);
