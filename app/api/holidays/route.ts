@@ -49,14 +49,18 @@ export async function GET(req: NextRequest) {
     return Response.json({ error: "not found" }, { status: 404 });
   }
 
-  const start = new Date();
-  start.setHours(start.getHours() + 3);
+  const now = new Date();
 
-  const end = new Date();
-  end.setDate(start.getDate() + 1);
-  end.setHours(0, 0, 0, 0);
+  const start = new Date(now);
+  start.setHours(0, 0, 0, 0);
 
-  console.log("başlangıç:" + start.toDateString() + start.toTimeString(), "bitiş:" + end.toDateString() + end.toTimeString());
+  const end = new Date(start);
+  end.setDate(end.getDate() + 1);
+
+  console.log(
+    "başlangıç:" + start.toDateString() + start.toTimeString(),
+    "bitiş:" + end.toDateString() + end.toTimeString()
+  );
 
   let holidays;
 
