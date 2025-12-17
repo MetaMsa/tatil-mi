@@ -50,31 +50,11 @@ export async function GET(req: NextRequest) {
   }
 
   const now = new Date();
-  const TR_OFFSET = 3;
+  const start = new Date(now.setUTCHours(0, 0, 0, 0));
+  start.setUTCHours(start.getUTCHours() - 3);
 
-  const start = new Date(
-    Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCDate(),
-      +TR_OFFSET,
-      0,
-      0,
-      0
-    )
-  );
-
-  const end = new Date(
-    Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCDate() + 1,
-      +TR_OFFSET,
-      0,
-      0,
-      0
-    )
-  );
+  const end = new Date(start);
+  end.setUTCDate(end.getUTCDate() + 1);
 
   let holidays;
 
