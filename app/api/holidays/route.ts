@@ -53,7 +53,10 @@ export async function GET(req: NextRequest) {
   start.setHours(0, 0, 0, 0);
 
   const end = new Date();
-  end.setHours(23, 59, 59, 999);
+  start.setDate(start.getDate() + 1);
+  end.setHours(0, 0, 0, 0);
+
+  console.log(start.toDateString(), end.toDateString());
 
   let holidays;
 
