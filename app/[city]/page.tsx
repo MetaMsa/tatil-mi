@@ -105,7 +105,7 @@ export default function City({
           holidays.map((h) => (
             <Link
               key={h.id}
-              href={h.url}
+              href={"http:" + h.url}
               className={`card ${
                 fmtDT(h.createdAt).slice(0, 10) ===
                 fmtDT(d.toString()).slice(0, 10)
