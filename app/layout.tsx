@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,7 +24,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Tatil Mi?",
   description: "Kar tatili duyuruları",
-  keywords: "istanbul kar tatiliankara kar tatili var mı, bursa kar tatili son dakika, izmir kar tatili olur mu, valilik kar tatili açıklaması bugün, okullar yarın kar tatil mi",
+  keywords:
+    "istanbul kar tatiliankara kar tatili var mı, bursa kar tatili son dakika, izmir kar tatili olur mu, valilik kar tatili açıklaması bugün, okullar yarın kar tatil mi",
   robots: "index, follow",
 };
 
@@ -43,6 +45,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
+        <Analytics />
         <header>
           <nav className="navbar bg-amber-50 shadow-sm justify-between gap-3">
             <Link className="btn btn-primary text-xl" href="/">
