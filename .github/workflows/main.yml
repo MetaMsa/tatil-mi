@@ -1,0 +1,16 @@
+name: Daily Job
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API
+        run: |
+          curl -X GET \
+               -H "x-cron-secret: ${{ secrets.CRON_SECRET }}" \
+               https://tatilmi.benserhat.com/api/scrape
