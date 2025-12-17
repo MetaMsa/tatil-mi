@@ -31,7 +31,7 @@ export default function Search() {
         onChange={searchHandler}
         onKeyDown={keyHandler}
         type="search"
-        className="input border-black w-full bg-info my-auto text-dark rounded-xl"
+        className="input border-black bg-info my-auto text-dark rounded-xl"
         placeholder="Şehir ara..."
         onFocus={() => setSearchTextOpen(true)}
         onBlur={() => setSearchTextOpen(false)}

@@ -97,7 +97,7 @@ export default function City({
 
   return (
     <div className="m-10 text-center bg-white p-3 rounded-xl shadow">
-      <p className="text-center mb-5 bg-info w-50 mx-auto p-3 rounded-xl">
+      <p className="text-center mb-5 bg-info mx-auto p-3 rounded-xl">
         {capitalized} Tatil Duyuruları
       </p>
       <div className="flex flex-wrap justify-center gap-6 overflow-y-auto max-h-96">
