@@ -40,18 +40,41 @@ export async function GET(req: NextRequest) {
 
   const city = searchParams.get("city");
 
-  if(city && !Object.keys(cities).includes(NormalizeCities[city as keyof typeof NormalizeCities] ?? city)) {
+  if (
+    city &&
+    !Object.keys(cities).includes(
+      NormalizeCities[city as keyof typeof NormalizeCities] ?? city
+    )
+  ) {
     return Response.json({ error: "not found" }, { status: 404 });
   }
 
   const now = new Date();
+  const TR_OFFSET = 3;
 
-  const start = new Date(now);
-  start.setHours(0, 0, 0, 0);
+  const start = new Date(
+    Date.UTC(
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate(),
+      -TR_OFFSET,
+      0,
+      0,
+      0
+    )
+  );
 
-  const end = new Date(now);
-  start.setDate(start.getDate() + 1);
-  end.setHours(0, 0, 0, 0);
+  const end = new Date(
+    Date.UTC(
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate() + 1,
+      -TR_OFFSET,
+      0,
+      0,
+      0
+    )
+  );
 
   let holidays;
 
