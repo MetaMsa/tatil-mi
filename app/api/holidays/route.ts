@@ -49,14 +49,11 @@ export async function GET(req: NextRequest) {
     return Response.json({ error: "not found" }, { status: 404 });
   }
 
-  const now = new Date();
-  
-  const start = new Date(now);
+  const start = new Date();
   start.setHours(0, 0, 0, 0);
 
-  const end = new Date(now);
-  start.setDate(start.getDate() + 1);
-  end.setHours(0, 0, 0, 0);
+  const end = new Date();
+  end.setHours(23, 59, 59, 999);
 
   let holidays;
 
