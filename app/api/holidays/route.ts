@@ -51,11 +51,20 @@ export async function GET(req: NextRequest) {
 
   const now = new Date();
 
-  const start = new Date(now);
-  start.setHours(0, 0, 0, 0);
+  const start = new Date(
+    Date.UTC(
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate(),
+      -3,
+      0,
+      0,
+      0
+    )
+  );
 
   const end = new Date(start);
-  end.setDate(end.getDate() + 1);
+  end.setUTCDate(end.getUTCDate() + 1);
 
   console.log(
     "başlangıç:" + start.toDateString() + start.toTimeString(),
