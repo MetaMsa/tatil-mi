@@ -54,9 +54,10 @@ export async function GET(req: NextRequest) {
 
   const start = new Date(
     Date.UTC(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate(),
+      +TR_OFFSET,
       0,
       0,
       0
@@ -65,9 +66,10 @@ export async function GET(req: NextRequest) {
 
   const end = new Date(
     Date.UTC(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate() + 1,
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate() + 1,
+      +TR_OFFSET,
       0,
       0,
       0
