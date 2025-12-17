@@ -50,12 +50,13 @@ export async function GET(req: NextRequest) {
   }
 
   const now = new Date();
+  const TR_OFFSET = 3;
 
   const start = new Date(
     Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCDate(),
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
       0,
       0,
       0
@@ -64,9 +65,9 @@ export async function GET(req: NextRequest) {
 
   const end = new Date(
     Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCDate() + 1,
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() + 1,
       0,
       0,
       0
