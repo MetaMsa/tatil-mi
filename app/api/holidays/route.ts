@@ -48,10 +48,8 @@ export async function GET(req: NextRequest) {
 
   const start = new Date(now);
   start.setDate(start.getDate() - 1);
-  start.setHours(22, 0, 0, 0);
 
   const end = new Date(now);
-  end.setHours(22, 0, 0, 0);
 
   let holidays;
 
