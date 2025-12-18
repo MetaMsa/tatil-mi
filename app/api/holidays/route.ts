@@ -50,10 +50,10 @@ export async function GET(req: NextRequest) {
   }
 
   const start = new Date();
-  start.setHours(+3, 0, 0, 0);
+  start.setHours(21, 0, 0, 0);
 
   const end = new Date(start);
-  end.setUTCDate(end.getUTCDate() + 1);
+  start.setHours(20, 59, 59, 0);
 
   console.log(
     "başlangıç:" + start.toDateString() + start.toTimeString(),
