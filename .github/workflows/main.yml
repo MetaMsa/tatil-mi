@@ -2,7 +2,7 @@ name: Daily Job
 
 on:
   schedule:
-    - cron: "0 9 * * *"
+    - cron: "0 9,12,15,18 * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,5 +12,5 @@ jobs:
       - name: Call API
         run: |
           curl -X GET \
-           -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-           https://tatilmi.benserhat.com/api/scrape
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            https://tatilmi.benserhat.com/api/scrape
