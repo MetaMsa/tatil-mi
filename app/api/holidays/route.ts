@@ -56,11 +56,6 @@ export async function GET(req: NextRequest) {
   end.setDate(start.getDate() + 1);
   end.setHours(20, 59, 59, 0);
 
-  console.log(
-    "başlangıç:" + start.toDateString() + start.toTimeString(),
-    "bitiş:" + end.toDateString() + end.toTimeString()
-  );
-
   let holidays;
 
   if (city && city != "") {
