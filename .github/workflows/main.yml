@@ -12,5 +12,5 @@ jobs:
       - name: Call API
         run: |
           curl -X GET \
-               -H "x-cron-secret: ${{ secrets.CRON_SECRET }}" \
-               https://tatilmi.benserhat.com/api/scrape
+           -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+           https://tatilmi.benserhat.com/api/scrape
