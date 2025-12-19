@@ -64,16 +64,16 @@ enum NormalizeCities {
 *                  createdAt:
 *                    type: string
 *                    format: date-time
-*         404:
-*           description: Validation Error
-*           content:
-*             application/json:
-*               schema:
-*                 type: object
-*                 properties:
-*                   error:
-*                     type: string
-*                     example: not found
+*       404:
+*         description: Validation Error
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 error:
+*                   type: string
+*                   example: not found
 */
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);

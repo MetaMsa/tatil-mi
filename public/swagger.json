@@ -21,22 +21,6 @@
         ],
         "responses": {
           "200": {
-            "404": {
-              "description": "Validation Error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "error": {
-                        "type": "string",
-                        "example": "not found"
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "description": "Successful Response",
             "content": {
               "application/json": {
@@ -55,6 +39,22 @@
                         "type": "string",
                         "format": "date-time"
                       }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "not found"
                     }
                   }
                 }
