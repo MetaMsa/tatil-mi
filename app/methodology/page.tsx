@@ -1,5 +1,3 @@
-"use client";
-
 export default function Disclaimer() {
   return (
     <div className="m-3 text-center bg-white p-3 rounded-xl shadow">

@@ -1,8 +1,8 @@
-"use client";
-
 export default function Disclaimer() {
   return (
     <div className="m-3 text-center bg-white p-3 rounded-xl shadow">
+      <h2>Sorumluluk Reddi</h2>
+
       <p>
         Bu sitede yer alan kar tatili ve benzeri duyurular; valilikler, resmi
         kurumlar ve kamuya açık dijital kaynaklardan otomatik olarak

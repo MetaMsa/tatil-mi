@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /docs
 
 # Host
 Host: https://tatilmi.benserhat.live

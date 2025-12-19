@@ -35,6 +35,46 @@ enum NormalizeCities {
   usak = "uşak",
 }
 
+/**
+* @swagger
+* /api/holidays:
+*   get:
+*     summary: Tatilleri getirir
+*     parameters:
+*       - in: query
+*         name: city
+*         required: false
+*         schema:
+*           type: string
+*         description: Şehir adı
+*     responses:
+*       200:
+*         description: Successful Response
+*         content:
+*           application/json:
+*             schema:
+*               type: array
+*               items:
+*                 type: object
+*                 properties:
+*                  id:
+*                    type: number
+*                  city:
+*                    type: string
+*                  createdAt:
+*                    type: string
+*                    format: date-time
+*         404:
+*           description: Validation Error
+*           content:
+*             application/json:
+*               schema:
+*                 type: object
+*                 properties:
+*                   error:
+*                     type: string
+*                     example: not found
+*/
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
 
