@@ -1,4 +1,3 @@
-import path from "path";
 import { createSwaggerSpec } from "next-swagger-doc";
 
 export const getSwaggerSpec = () =>
