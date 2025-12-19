@@ -3,7 +3,7 @@ import { createSwaggerSpec } from "next-swagger-doc";
 
 export const getSwaggerSpec = () =>
   createSwaggerSpec({
-    apiFolder: path.join(process.cwd(), "app/api"),
+    apiFolder: `${process.env.apiFolder}`,
     definition: {
       openapi: "3.0.0",
       info: {
