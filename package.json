@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "swagger:generate": "tsx scripts/generate-swagger.ts",
+    "build": "npm run swagger:generate && next build",
     "postbuild": "next-sitemap",
     "postinstall": "prisma generate && prisma migrate deploy",
     "start": "next start",
@@ -39,6 +40,7 @@
     "eslint-config-next": "16.0.7",
     "prisma": "^7.1.0",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   },
   "browserslist": "> 1%"

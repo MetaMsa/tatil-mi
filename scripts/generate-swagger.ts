@@ -1,5 +1,3 @@
-import type { NextConfig } from "next";
-
 import { writeFileSync } from 'fs';
 import { createSwaggerSpec } from 'next-swagger-doc';
 
@@ -15,9 +13,4 @@ const spec = createSwaggerSpec({
 });
 
 writeFileSync('public/swagger.json', JSON.stringify(spec, null, 2));
-
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+console.log('swagger.json generated');
