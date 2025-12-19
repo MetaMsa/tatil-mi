@@ -56,7 +56,7 @@ export default function RootLayout({
           </nav>
         </header>
         <main className="w-full m-auto">{children}</main>
-        <footer className="footer flex justify-between shadow-2xl bg-amber-50 text-dark p-3">
+        <footer className="footer flex justify-between shadow-2xl bg-amber-50 text-dark p-2">
           <aside className="flex my-auto">
             <Image
               className="mx-auto"
@@ -95,6 +95,9 @@ export default function RootLayout({
             </Link>
             <Link className="link link-hover mx-auto" href="/methodology">
               Metodoloji
+            </Link>
+            <Link className="col-span-2 link link-hover mx-auto" href="/docs">
+              API
             </Link>
           </nav>
           <nav className="my-auto">
