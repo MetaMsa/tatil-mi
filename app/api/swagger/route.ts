@@ -1,5 +1,6 @@
-import { getSwaggerSpec } from "@/lib/swagger";
+import { getApiDocs } from "@/lib/swagger";
 
 export async function GET() {
-    return Response.json(getSwaggerSpec());
+    const spec = await getApiDocs();
+    return Response.json(spec);
 }
