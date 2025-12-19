@@ -2,7 +2,7 @@ import { createSwaggerSpec } from "next-swagger-doc";
 
 export const getSwaggerSpec = () =>
   createSwaggerSpec({
-    apiFolder: `${process.env.apiFolder}`,
+    apiFolder: "api",
     definition: {
       openapi: "3.0.0",
       info: {
