@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "swagger:generate": "tsx scripts/generate-swagger.ts",
-    "build": "npm run swagger:generate && next build",
+    "build": "next build",
     "postbuild": "next-sitemap",
     "postinstall": "prisma generate && prisma migrate deploy",
     "start": "next start",
