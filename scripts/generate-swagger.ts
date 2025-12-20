@@ -18,6 +18,11 @@ const spec = createSwaggerSpec({
         },
       },
     },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
 });
 
