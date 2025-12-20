@@ -8,7 +8,7 @@ import { NextRequest } from "next/server";
  * /api/scrape:
  *   get:
  *     summary: Web Scraping Başlatır (Cron Job)
- *       security:
+ *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
@@ -44,6 +44,7 @@ import { NextRequest } from "next/server";
  *                   type: string
  *                   example: unauthorized
  */
+
 export async function GET(req: NextRequest) {
   const auth = req.headers.get("authorization");
 

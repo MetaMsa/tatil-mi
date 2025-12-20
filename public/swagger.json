@@ -67,15 +67,9 @@
     "/api/scrape": {
       "get": {
         "summary": "Web Scraping Başlatır (Cron Job)",
-        "parameters": [
+        "security": [
           {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Bearer CRON_SECRET"
+            "bearerAuth": []
           }
         ],
         "responses": {
