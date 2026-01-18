@@ -15,10 +15,12 @@ export async function GET(req: NextRequest) {
 
   for (const [cityName, cityAccount] of Object.entries(cities)) {
     try {
+      console.log(`Şehir işleniyor: ${cityName}`);
+
       let results = await scrapeOfficial(cityName);
 
       if (!results || results.length === 0) {
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
         results = await scrapeSocial(cityAccount);
       }
 
