@@ -72,7 +72,7 @@ export default function City({
 
       const list: Holiday[] = await res.json();
 
-      const mapped: Holiday[] = list.map((x: any) => ({
+      const mapped: Holiday[] = list.map((x: Holiday) => ({
         id: x.id,
         city: x.city,
         text: x.text,

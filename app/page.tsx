@@ -29,7 +29,7 @@ export default function TurkeyMap() {
 
       const list: Cities[] = await res.json();
 
-      const mapped = list.map((x: any) => ({
+      const mapped = list.map((x: Cities) => ({
         id: x.id,
         city: x.city.toLocaleLowerCase("tr-TR"),
       }));

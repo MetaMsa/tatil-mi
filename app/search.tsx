@@ -3,7 +3,6 @@
 import cities from "@/cities.json";
 import { useState } from "react";
 import { slugify } from "turkify";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function Search() {
