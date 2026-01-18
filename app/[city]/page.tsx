@@ -111,7 +111,7 @@ export default function City({
                 fmtDT(d.toString()).slice(0, 10)
                   ? "bg-primary"
                   : "bg-warning"
-              } text-primary-content w-96`}
+              } text-primary-content w-96 h-50 overflow-y-auto`}
             >
               <div className="card-body">
                 <h2 className="card-title">Kar Tatili</h2>
