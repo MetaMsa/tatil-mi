@@ -8,10 +8,10 @@ interface OfficialResult {
   url: string;
 }
 
-export async function scrapeOfficial(city: string) {
+export async function scrapeOfficial(cityName: string) {
   const results: OfficialResult[] = [];
 
-  const res = await fetch(`http://www.${slugify(city)}.gov.tr/duyurular`);
+  const res = await fetch(`http://www.${slugify(cityName)}.gov.tr/duyurular`);
   const html = await res.text();
   const $ = cheerio.load(html);
 
@@ -19,31 +19,12 @@ export async function scrapeOfficial(city: string) {
     const text = $(el).text().toLocaleLowerCase("tr-TR");
     if (KEYWORDS.some((k) => text.includes(k))) {
       results.push({
-        city: city,
+        city: cityName,
         text: text,
         url: $(el).attr("href")!,
       });
     }
   });
-
-  if (results.length == 0) {
-    const res2 = await fetch(
-      `http://www.${slugify(city)}.gov.tr/basin-aciklamalari`
-    );
-    const html2 = await res2.text();
-    const $2 = cheerio.load(html2);
-
-    $2("a.announce-text").each((_, el) => {
-      const text = $(el).text().toLocaleLowerCase("tr-TR");
-      if (KEYWORDS.some((k) => text.includes(k))) {
-        results.push({
-          city: city,
-          text: text,
-          url: $(el).attr("href")!,
-        });
-      }
-    });
-  }
 
   return results;
 }
