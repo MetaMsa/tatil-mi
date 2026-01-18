@@ -21,7 +21,7 @@ export async function scrapeSocial(cityAccount: string) {
             results.push({
                 city: Object.entries(cities).find(([, account]) => account === cityAccount)?.[0] || "",
                 text: text,
-                url: item.link!,
+                url: item.link?.toString().replace("https://nitter.dashy.a3x.dn.nyx.im", "//x.com") || "",
             });
         }
     }
