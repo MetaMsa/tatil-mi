@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
       let results = await scrapeOfficial(cityName);
 
       if (!results || results.length === 0) {
-        new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 3000));
         results = await scrapeSocial(cityAccount);
       }
 
