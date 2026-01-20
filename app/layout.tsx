@@ -41,6 +41,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         />
+        <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="benserhat" data-description="Support me on Buy me a coffee!" data-message="Dilerseniz bana destek olabilirsiniz." data-color="#BD5FFF" data-position="Right" data-x_margin="18" data-y_margin="18" defer></script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
