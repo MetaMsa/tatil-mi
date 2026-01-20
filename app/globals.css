@@ -54,6 +54,15 @@ h1 {
 .slider__word:nth-child(4) {
   animation-delay: 6s;
 }
+body #bmc-iframe {
+  z-index: 9999 !important;
+  height: 500px !important;
+  width: 25% !important;
+  min-width: 300px !important;
+  min-height: unset !important;
+  max-width: 420px;
+  max-height: 620px;
+}
 
 @keyframes slide {
   0% {
