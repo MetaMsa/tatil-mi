@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: "Tatil Mi?",
   description: "Kar tatili duyuruları",
   keywords:
-    "istanbul kar tatiliankara kar tatili var mı, bursa kar tatili son dakika, izmir kar tatili olur mu, valilik kar tatili açıklaması bugün, okullar yarın kar tatil mi",
+    "istanbul kar tatili, ankara kar tatili var mı, bursa kar tatili son dakika, izmir kar tatili olur mu, valilik kar tatili açıklaması bugün, okullar yarın kar tatil mi",
   robots: "index, follow",
 };
 
