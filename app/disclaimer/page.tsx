@@ -1,3 +1,12 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sorumluluk Reddi",
+  alternates: {
+    canonical: `https://tatilmi.benserhat.com/disclaimer`,
+  },
+};
+
 export default function Disclaimer() {
   return (
     <div className="m-3 text-center bg-white p-3 rounded-xl shadow">

@@ -50,7 +50,10 @@ export async function generateMetadata({
   return {
     title: `${capitalized} tatil mi?`,
     description: `${capitalized} kar tatili duyuruları`,
-    keywords: `${capitalized} tatil mi, ${capitalized} kar tatili, ${capitalized} valilik, ${capitalized} açıklama`
+    keywords: `${capitalized} tatil mi, ${capitalized} kar tatili, ${capitalized} valilik, ${capitalized} açıklama`,
+    alternates: {
+      canonical: `https://tatilmi.benserhat.com/${city}`,
+    },
   };
 }
 

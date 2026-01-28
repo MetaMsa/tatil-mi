@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   keywords:
     "istanbul kar tatili, ankara kar tatili var mı, bursa kar tatili son dakika, izmir kar tatili olur mu, valilik kar tatili açıklaması bugün, okullar yarın kar tatil mi",
   robots: "index, follow",
+  alternates: {
+    canonical: `https://tatilmi.benserhat.com`,
+  },
 };
 
 export default function RootLayout({
