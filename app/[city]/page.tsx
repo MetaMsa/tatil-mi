@@ -117,7 +117,7 @@ export default async function Page({
 }) {
   const { city } = await params;
 
-  if (!cities[city as keyof typeof cities]) return notFound();
+  if (!NormalizeCities[city as keyof typeof NormalizeCities]) return notFound();
 
   return <City city={city} />;
 }
