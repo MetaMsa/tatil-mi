@@ -1,4 +1,6 @@
+import { notFound } from "next/navigation";
 import City from "./City";
+import cities from "@/cities.json";
 
 enum NormalizeCities {
   adiyaman = "adıyaman",
@@ -63,6 +65,9 @@ export default async function Page({
   params: Promise<{ city: string }>;
 }) {
   const { city } = await params;
+
+  if(!cities[city as keyof typeof cities])
+    return notFound();
 
   return <City city={city} />;
 }

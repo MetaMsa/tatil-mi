@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { useState, useEffect } from "react";
 
 enum NormalizeCities {
@@ -50,7 +49,6 @@ const fmtDT = (iso?: string | null) =>
 
 export default function City({ city }: { city: string }) {
   const [holidays, setHolidays] = useState<Holiday[]>([]);
-  const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -61,11 +59,6 @@ export default function City({ city }: { city: string }) {
         cache: "no-store",
         headers: { Accept: "application/json" },
       }).finally(() => setLoading(false));
-
-      if (res.status === 404) {
-        setError("404");
-        return;
-      }
 
       const list: Holiday[] = await res.json();
 
@@ -80,8 +73,6 @@ export default function City({ city }: { city: string }) {
     };
     getData();
   }, [city]);
-
-  if (error === "404") return notFound();
 
   const capitalized = NormalizeCities[city as keyof typeof NormalizeCities]
     ? NormalizeCities[city as keyof typeof NormalizeCities]
