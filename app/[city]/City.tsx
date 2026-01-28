@@ -48,20 +48,19 @@ interface Holiday {
 const fmtDT = (iso?: string | null) =>
   iso ? new Date(iso).toLocaleString("tr-TR") : "—";
 
-export default function City({
-  city,
-}: {
-  city: string;
-}) {
+export default function City({ city }: { city: string }) {
   const [holidays, setHolidays] = useState<Holiday[]>([]);
   const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const getData = async () => {
+      setLoading(true);
+
       const res = await fetch(`/api/holidays?city=${city}`, {
         cache: "no-store",
         headers: { Accept: "application/json" },
-      });
+      }).finally(() => setLoading(false));
 
       if (res.status === 404) {
         setError("404");
@@ -99,7 +98,9 @@ export default function City({
         {capitalized} Tatil Duyuruları
       </p>
       <div className="flex flex-wrap justify-center gap-6 overflow-y-auto max-h-96">
-        {holidays.length != 0 ? (
+        {loading ? 
+          <div className="loading loading-spinner"></div>
+         : (holidays.length != 0 ? (
           holidays.map((h) => (
             <Link
               key={h.id}
@@ -130,7 +131,7 @@ export default function City({
           <div className="bg-red-500 text-white p-3 rounded-xl">
             Bu il için duyuru yok.
           </div>
-        )}
+        ))}
       </div>
     </div>
   );
