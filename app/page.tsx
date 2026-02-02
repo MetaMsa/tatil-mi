@@ -53,7 +53,9 @@ export default function TurkeyMap() {
     const g = svg.append("g");
 
     const isHolidayCity = (d: any) =>
-      cities.some((c) => c.city === d.properties?.name?.toLocaleLowerCase("tr-TR"));
+      cities.some(
+        (c) => c.city === d.properties?.name?.toLocaleLowerCase("tr-TR"),
+      );
 
     g.selectAll("path")
       .data(geoData.features)
@@ -75,7 +77,11 @@ export default function TurkeyMap() {
           .duration(150)
           .attr("fill-opacity", isHolidayCity(d) ? 0.8 : 0.6);
       })
-      .on("click", (_, d: any) => {
+      .on("click", function (_, d: any) {
+        d3.select(this)
+          .transition()
+          .duration(150)
+          .attr("fill-opacity", 1);
         router.push("/" + slugify(d.properties.name));
       });
 
@@ -124,7 +130,9 @@ export default function TurkeyMap() {
         </span>
         Gün içinde duyuru tespit edilen iller
       </div>
-      <div className="text-center my-5 text-sm">Duyuru detayları için haritadan il seçin.</div>
+      <div className="text-center my-5 text-sm">
+        Duyuru detayları için haritadan il seçin.
+      </div>
     </div>
   );
 }
