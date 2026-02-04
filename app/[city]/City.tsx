@@ -88,7 +88,7 @@ export default function City({ city }: { city: string }) {
       <p className="text-center mb-5 bg-info mx-auto p-3 rounded-xl">
         {capitalized} Tatil Duyuruları
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center gap-6 overflow-y-auto max-h-96">
+      <div className="flex flex-wrap justify-center gap-6 overflow-y-auto max-h-96">
         {loading ? 
           <div className="loading loading-spinner"></div>
          : (holidays.length != 0 ? (
@@ -101,10 +101,10 @@ export default function City({ city }: { city: string }) {
                 fmtDT(d.toString()).slice(0, 10)
                   ? "bg-primary"
                   : "bg-warning"
-              } text-primary-content w-full h-50 hover:shadow-2xl active:shadow-2xl`}
+              } text-primary-content w-96 h-50 hover:shadow-2xl active:shadow-2xl`}
             >
               <div className="card-body">
-                <h2 className="card-title">Kar Tatili</h2>
+                <h2 className="card-title mx-auto md:mx-0">Kar Tatili</h2>
                 <p className="truncate">
                   {h.text} <br />
                   <span className="text-xs">
