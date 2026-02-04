@@ -29,7 +29,7 @@ export default function Search() {
   };
 
   return (
-    <div className="relative me-6 sm:ms-24 md:ms-36 lg:ms-48">
+    <div className="relative">
       <input
         onChange={searchHandler}
         onKeyDown={keyHandler}

@@ -45,15 +45,27 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="benserhat" data-description="Support me on Buy me a coffee!" data-message="Dilerseniz bana destek olabilirsiniz." data-color="#BD5FFF" data-position="Right" data-x_margin="18" data-y_margin="80" defer></script>
+        <script
+          data-name="BMC-Widget"
+          data-cfasync="false"
+          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+          data-id="benserhat"
+          data-description="Support me on Buy me a coffee!"
+          data-message="Dilerseniz bana destek olabilirsiniz."
+          data-color="#BD5FFF"
+          data-position="Right"
+          data-x_margin="18"
+          data-y_margin="80"
+          defer
+        ></script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <Analytics />
         <header className="mb-20 flex justify-center">
-          <nav className="m-5 w-fit navbar rounded-2xl bg-amber-50 shadow-xl fixed z-10 opacity-90">
-            <Link className="btn btn-primary text-xl me-6 sm:me-24 md:me-36 lg:me-48" href="/">
+          <nav className="m-5 w-fit navbar rounded-2xl bg-amber-50 shadow-xl fixed z-10 opacity-90 gap-12 sm:gap-48 md:gap-72 lg:gap-96">
+            <Link className="btn btn-primary text-xl" href="/">
               <i className="fa-regular fa-snowflake"></i>
               Tatil Mi?
             </Link>
@@ -61,7 +73,7 @@ export default function RootLayout({
           </nav>
         </header>
         <main className="w-full m-auto">{children}</main>
-        <footer className="footer flex justify-between shadow-2xl bg-amber-50 text-dark p-2">
+        <footer className="w-fit mb-5 mx-auto rounded-2xl footer flex justify-center sm:gap-24 md:gap-36 lg:gap-48 shadow-2xl bg-amber-50 text-dark p-2">
           <aside className="flex my-auto">
             <Image
               className="mx-auto"
@@ -82,7 +94,7 @@ export default function RootLayout({
               </span>
             </div>
           </aside>
-          <nav className="my-auto grid grid-cols-2 justify-center text-xs">
+          <nav className="my-auto grid grid-cols-2 justify-center text-xs text-center">
             <Link
               className="link link-hover mx-auto"
               href="https://benserhat.com/"
