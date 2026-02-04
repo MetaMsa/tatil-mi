@@ -14,7 +14,7 @@ export default function Disclaimer() {
         <h2>Metodoloji</h2>
 
         <p>
-          Bu site, Türkiye genelindeki kar tatili duyurularını tek bir platformda
+          Bu site, Türkiye genelindeki kar tatili ve benzeri duyuruları tek bir platformda
           toplamak amacıyla geliştirilmiştir. İçerikler, tamamen{" "}
           <strong>otomatik bir sistem</strong> aracılığıyla kamuya açık
           kaynaklardan derlenmektedir.

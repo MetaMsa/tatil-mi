@@ -104,7 +104,7 @@ export default function City({ city }: { city: string }) {
               } text-primary-content w-96 h-50 hover:shadow-2xl active:shadow-2xl`}
             >
               <div className="card-body">
-                <h2 className="card-title mx-auto md:mx-0">Kar Tatili</h2>
+                <h2 className="card-title mx-auto md:mx-0">Tatil</h2>
                 <p className="truncate">
                   {h.text} <br />
                   <span className="text-xs">
