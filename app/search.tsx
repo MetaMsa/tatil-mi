@@ -15,7 +15,7 @@ export default function Search() {
   };
 
   const filtered = Object.keys(cities).filter((city) =>
-    city.toLowerCase().includes(searchText)
+    city.toLowerCase().includes(searchText),
   );
 
   const keyHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -25,18 +25,18 @@ export default function Search() {
   };
 
   return (
-    <div className="w-72">
+    <div>
       <input
         onChange={searchHandler}
         onKeyDown={keyHandler}
         type="search"
-        className="input border-black bg-info my-auto text-dark rounded-xl"
+        className="input border-black bg-info my-auto text-dark rounded-xl text-center"
         placeholder="Şehir ara..."
         onFocus={() => setSearchTextOpen(true)}
         onBlur={() => setSearchTextOpen(false)}
       />
       {searchText && searchTextOpen && (
-        <ul className="absolute p-3 bg-white rounded-box shadow max-h-96 overflow-auto">
+        <ul className="absolute p-3 bg-white rounded-box shadow max-h-96 overflow-auto text-center mt-2 w-50">
           {filtered.length === 0 && (
             <li className="disabled">
               <span>Sonuç yok</span>
@@ -47,7 +47,7 @@ export default function Search() {
             <li
               key={city}
               onMouseDown={() => router.push("/" + slugify(city))}
-              className="cursor-pointer link m-3 text-center"
+              className="cursor-pointer link m-3"
             >
               {city}
             </li>
