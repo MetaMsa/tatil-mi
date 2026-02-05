@@ -72,7 +72,7 @@ export default function RootLayout({
             <Search></Search>
           </nav>
         </header>
-        <main className="w-full m-auto">{children}</main>
+        <main className="w-full my-auto">{children}</main>
         <footer className="w-fit mb-5 mx-auto rounded-2xl footer flex justify-center sm:gap-24 md:gap-36 lg:gap-48 shadow-2xl bg-amber-50 text-dark p-2">
           <aside className="flex my-auto">
             <Image
