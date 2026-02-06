@@ -1,5 +1,6 @@
 export const KEYWORDS = [
   "eğitime ara",
   "ara verilmiştir",
-  "ara verildi"
+  "ara verildi",
+  "günü tatil"
 ];
