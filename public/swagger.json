@@ -64,12 +64,23 @@
         }
       }
     },
-    "/api/scrape": {
+    "/api/scrape/{city}": {
       "get": {
         "summary": "Web Scraping Başlatır (Cron Job)",
         "security": [
           {
             "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Şehir adı"
           }
         ],
         "responses": {
@@ -84,23 +95,13 @@
                       "type": "boolean",
                       "example": true
                     },
-                    "processed": {
-                      "type": "number",
-                      "example": 5
+                    "city": {
+                      "type": "string",
+                      "example": "afyonkarahisar"
                     },
-                    "details": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "city": {
-                            "type": "string"
-                          },
-                          "count": {
-                            "type": "number"
-                          }
-                        }
-                      }
+                    "count": {
+                      "type": "number",
+                      "example": 0
                     }
                   }
                 }
