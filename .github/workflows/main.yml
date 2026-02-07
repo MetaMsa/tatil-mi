@@ -15,7 +15,7 @@ jobs:
       - name: API
         run: |
           cities=(
-            "adana" "adiyaman" "afyonkarahisar" "ağrı" "amasya" "ankara" "antalya" "artvin"
+            "adana" "adıyaman" "afyonkarahisar" "ağrı" "amasya" "ankara" "antalya" "artvin"
             "aydın" "balıkesir" "bilecik" "bingöl" "bitlis" "bolu" "burdur" "bursa" "çanakkale"
             "çankırı" "çorum" "denizli" "diyarbakır" "edirne" "elazığ" "erzincan" "erzurum"
             "eskişehir" "gaziantep" "giresun" "gümüşhane" "hakkari" "hatay" "ısparta" "mersin"
@@ -36,5 +36,5 @@ jobs:
               -H "Authorization: Bearer ${{ secrets.RAILWAY_TOKEN }}" \
               -H "Content-Type: application/json" \
               -d '{"query":"mutation deploymentRestart($id: String!) {\ndeploymentRestart(id: $id)\n}","variables":{"id":"921613d4-690e-48cb-a1ee-515dfbe68faf"}}'
-            sleep 60
+            sleep 10
           done
