@@ -32,5 +32,9 @@ jobs:
             curl -X GET \
               -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
               "https://tatilmi.benserhat.com/api/scrape/$city"
+            curl -X POST https://backboard.railway.com/graphql/v2 \
+              -H "Authorization: Bearer ${{ secrets.RAILWAY_TOKEN }}" \
+              -H "Content-Type: application/json" \
+              -d '{"query":"mutation deploymentRestart($id: String!) {\ndeploymentRestart(id: $id)\n}","variables":{"id":"921613d4-690e-48cb-a1ee-515dfbe68faf"}}'
             sleep 60
           done
