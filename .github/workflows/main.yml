@@ -32,5 +32,5 @@ jobs:
             curl -X GET \
               -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
               "https://tatilmi.benserhat.com/api/scrape/$city"
-            sleep 10
+            sleep 60
           done
