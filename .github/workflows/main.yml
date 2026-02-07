@@ -8,9 +8,12 @@ on:
 jobs:
   run-cron:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        city: []
     steps:
-      - name: Call API
+      - name: Call API for ${{ matrix.city }}
         run: |
           curl -X GET \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            https://tatilmi.benserhat.com/api/scrape
+            https://tatilmi.benserhat.com/api/scrape?city=${{ matrix.city }}

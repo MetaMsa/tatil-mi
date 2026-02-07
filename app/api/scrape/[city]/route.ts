@@ -6,23 +6,27 @@ import { scrapeSocial } from "@/lib/scraper/social";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { city: string } },
+  {
+    params,
+  }: {
+    params: Promise<{ city: string }>;
+  },
 ) {
   const auth = req.headers.get("authorization");
-  const cityName = params.city;
+  const { city } = await params;
 
   if (auth !== `Bearer ${process.env.CRON_SECRET}`) {
     return Response.json({ error: "unauthorized" }, { status: 401 });
   }
 
-  const cityAccount = cities[cityName as keyof typeof cities];
+  const cityAccount = cities[city as keyof typeof cities];
 
   let results: { city: string; text: string; url: string }[] = [];
 
   try {
-    console.log(`Şehir işleniyor: ${cityName}`);
+    console.log(`Şehir işleniyor: ${city}`);
 
-    results = await scrapeOfficial(cityName);
+    results = await scrapeOfficial(city);
 
     if (!results || results.length === 0) {
       results = await scrapeSocial(cityAccount);
@@ -30,19 +34,19 @@ export async function GET(
 
     await prisma.holiday.createMany({
       data: results.map((item) => ({
-        city: cityName,
+        city: city,
         text: item.text,
         url: item.url,
       })),
       skipDuplicates: true,
     });
   } catch (e) {
-    console.error(`Şehir işlenirken hata oluştu ${cityName}: `, e);
+    console.error(`Şehir işlenirken hata oluştu ${city}: `, e);
   }
 
   return Response.json({
     ok: true,
-    city: cityName,
+    city: city,
     count: results.length,
   });
 }
