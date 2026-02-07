@@ -13,7 +13,7 @@ const parser = new Parser();
 export async function scrapeSocial(cityAccount: string) {
     const results: SocialResult[] = [];
     
-    const feed = await parser.parseURL(`https://nitter.dashy.a3x.dn.nyx.im/${cityAccount}/rss`);
+    const feed = await parser.parseURL(`https://positive-contentment-production.up.railway.app/${cityAccount}/rss`);
 
     feed.items.forEach(item => {
         const text = (item.title || "").toLocaleLowerCase("tr-TR");
