@@ -36,5 +36,5 @@ jobs:
               -H "Authorization: Bearer ${{ secrets.RAILWAY_TOKEN }}" \
               -H "Content-Type: application/json" \
               -d '{"query":"mutation deploymentRestart($id: String!) {\ndeploymentRestart(id: $id)\n}","variables":{"id":"921613d4-690e-48cb-a1ee-515dfbe68faf"}}'
-            sleep 10
+            sleep 5
           done
