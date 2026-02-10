@@ -109,6 +109,10 @@ export default function TurkeyMap() {
         .duration(700)
         .attr("fill-opacity", 0.9)
         .on("end", pulse);
+
+        return () => {
+          holidayPaths.interrupt();
+        };
     };
 
     if (!holidayPaths.empty()) {
