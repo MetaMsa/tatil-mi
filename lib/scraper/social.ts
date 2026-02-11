@@ -16,7 +16,7 @@ export async function scrapeSocial(cityAccount: string) {
     let feed;
 
     do {
-        feed = await parser.parseURL(`https://nitter.net/${cityAccount}/with_replies/rss`);
+        feed = await parser.parseURL(`https://nitter-production-73a7.up.railway.app/${cityAccount}/with_replies/rss`);
     } while (!feed || !feed.items);
 
     feed.items.forEach(item => {
