@@ -47,6 +47,6 @@ export async function GET(
   return Response.json({
     ok: true,
     city: city,
-    count: results.length,
+    isHoliday: results.length > 0,
   });
 }
