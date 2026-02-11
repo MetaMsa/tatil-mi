@@ -35,6 +35,6 @@ jobs:
             curl -X POST https://backboard.railway.com/graphql/v2 \
               -H "Authorization: Bearer ${{ secrets.RAILWAY_TOKEN }}" \
               -H "Content-Type: application/json" \
-              -d '{"query":"mutation deploymentRestart($id: String!) {\ndeploymentRestart(id: $id)\n}","variables":{"id":"04d6ae57-7055-42b1-a64b-cef4e3f0fa02"}}'
+              -d '{"query":"mutation deploymentRestart($id: String!) {\ndeploymentRestart(id: $id)\n}","variables":{"id":"9fac5d9b-3451-43d9-bd33-dcce64558a77"}}'
             sleep 5
           done
