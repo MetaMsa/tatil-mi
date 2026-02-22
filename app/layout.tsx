@@ -83,11 +83,13 @@ export default function RootLayout({
               alt=""
             />
             <div>
-              <span className="slider me-15">
-                <span className="slider__word">İstanbul</span>
-                <span className="slider__word">Ankara</span>
-                <span className="slider__word">İzmir</span>
-                <span className="slider__word">Türkiye</span>
+              <span className="text-rotate duration-5000">
+                <span>
+                  <span>İstanbul</span>
+                  <span>Ankara</span>
+                  <span>İzmir</span>
+                  <span>Türkiye</span>
+                </span>
               </span>
               <span className="flex justify-start gap-1">
                 Tatil <span className="text-indigo-500">Mi?</span>
