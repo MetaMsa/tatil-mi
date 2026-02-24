@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { slugify } from "turkify";
 
 const width = 800;
-const height = 450;
+const height = 400;
 
 interface Cities {
   id: string;
