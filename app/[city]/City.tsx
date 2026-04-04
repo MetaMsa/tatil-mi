@@ -84,7 +84,7 @@ export default function City({ city }: { city: string }) {
   const d = new Date();
 
   return (
-    <div className="m-10 text-center bg-white p-3 rounded-xl shadow">
+    <div className="mx-10 text-center bg-white p-3 rounded-xl shadow">
       <p className="text-center mb-5 bg-info mx-auto p-3 rounded-xl">
         {capitalized} Tatil Duyuruları
       </p>
