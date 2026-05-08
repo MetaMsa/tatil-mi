@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Ping Railway App
         run: |
-          curl -L https://tatilmi.benserhat.com/
+          curl -L https://nitter-production-73a7.up.railway.app/
