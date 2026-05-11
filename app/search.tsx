@@ -48,7 +48,10 @@ export default function Search() {
           {filtered.map((city) => (
             <li
               key={city}
-              onMouseDown={() => router.push("/" + slugify(city))}
+              onMouseDown={(e) => {
+                e.preventDefault();
+                router.push("/" + slugify(city));
+              }}
               className="cursor-pointer py-2 px-2 truncate link rounded"
             >
               {city}
