@@ -84,8 +84,8 @@ export default function City({ city }: { city: string }) {
   const d = new Date();
 
   return (
-    <div className="mx-10 text-center bg-white p-3 rounded-xl shadow">
-      <p className="text-center mb-5 bg-info mx-auto p-3 rounded-xl">
+    <div className="mx-10 text-center bg-base-300 p-3 rounded-xl shadow">
+      <p className="text-center mb-5 bg-base mx-auto p-3 rounded-xl">
         {capitalized} Tatil Duyuruları
       </p>
       <div className="flex flex-wrap justify-center gap-6 overflow-y-auto max-h-96">
@@ -101,7 +101,7 @@ export default function City({ city }: { city: string }) {
                 fmtDT(d.toString()).slice(0, 10)
                   ? "bg-primary"
                   : "bg-warning"
-              } text-primary-content w-96 h-50 hover:shadow-2xl active:shadow-2xl`}
+              } text-base-content w-96 h-50 hover:shadow-2xl active:shadow-2xl`}
             >
               <div className="card-body">
                 <h2 className="card-title mx-auto md:mx-0">Tatil</h2>
@@ -119,7 +119,7 @@ export default function City({ city }: { city: string }) {
             </Link>
           ))
         ) : (
-          <div className="bg-red-500 text-white p-3 rounded-xl">
+          <div className="bg-base-500 text-base p-3 rounded-xl">
             Bu il için duyuru yok.
           </div>
         ))}

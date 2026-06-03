@@ -5,6 +5,7 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import Search from "./search";
+import Toggle from "./components/ThemeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,8 +65,8 @@ export default function RootLayout({
       >
         <Analytics />
         <header className="mb-20 flex justify-center">
-          <nav className="m-5 w-fit navbar rounded-2xl bg-amber-50 shadow-xl fixed z-10 opacity-90 gap-12 sm:gap-48 md:gap-72 lg:gap-96">
-            <Link className="btn btn-primary text-xl" href="/">
+          <nav className="m-5 w-fit navbar rounded-2xl bg-base-50 shadow-xl fixed z-10 opacity-90 gap-12 sm:gap-48 md:gap-72 lg:gap-96">
+            <Link className="btn btn-base text-xl" href="/">
               <i className="fa-regular fa-snowflake"></i>
               Tatil Mi?
             </Link>
@@ -73,10 +74,11 @@ export default function RootLayout({
           </nav>
         </header>
         <main className="w-full m-auto">{children}</main>
-        <footer className="w-fit mb-5 mx-auto rounded-2xl footer flex justify-center sm:gap-24 md:gap-36 lg:gap-48 shadow-2xl bg-amber-50 text-dark p-2">
+        <footer className="w-fit mb-5 mx-auto rounded-2xl footer flex justify-center sm:gap-24 md:gap-36 lg:gap-48 shadow-2xl bg-base-50 p-2">
           <aside className="flex my-auto">
+            <Toggle />
             <Image
-              className="mx-auto"
+              className="mx-auto bg-white rounded"
               src="/favicon.svg"
               width={25}
               height={25}

@@ -34,15 +34,15 @@ export default function Search() {
         onChange={searchHandler}
         onKeyDown={keyHandler}
         type="search"
-        className="input border-black bg-info my-auto text-dark rounded-xl text-center w-full"
+        className="input border-black bg-base my-auto rounded-xl text-center w-full"
         placeholder="Şehir ara..."
         onFocus={() => setSearchTextOpen(true)}
         onBlur={() => setSearchTextOpen(false)}
       />
       {searchText && searchTextOpen && (
-        <ul className="absolute left-0 right-0 mt-2 p-3 bg-white rounded-box shadow max-h-60 sm:max-h-96 overflow-auto text-center text-xs sm:text-lg">
+        <ul className="absolute left-0 right-0 mt-2 p-3 bg-base rounded-box shadow max-h-60 sm:max-h-96 overflow-auto text-center text-xs sm:text-lg">
           {filtered.length === 0 && (
-            <li className="py-2 text-gray-500">Sonuç yok</li>
+            <li className="py-2 text-base">Sonuç yok</li>
           )}
 
           {filtered.map((city) => (

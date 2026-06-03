@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Disclaimer() {
   return (
-    <div className="m-3 text-center bg-white p-3 rounded-xl shadow">
+    <div className="m-3 text-center bg-base-300 p-3 rounded-xl shadow">
       <h2>Sorumluluk Reddi</h2>
 
       <p>

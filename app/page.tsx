@@ -129,8 +129,8 @@ export default function TurkeyMap() {
       />
       <div className="flex gap-3 justify-center">
         <span className="relative flex size-3">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-          <span className="relative inline-flex size-3 rounded-full bg-red-500"></span>
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-base-400 opacity-75"></span>
+          <span className="relative inline-flex size-3 rounded-full bg-base-500"></span>
         </span>
         Gün içinde duyuru tespit edilen iller
       </div>
