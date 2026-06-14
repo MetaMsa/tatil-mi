@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import City from "./City";
-import cities from "@/cities.json";
 
 enum NormalizeCities {
   adana = "adana",
